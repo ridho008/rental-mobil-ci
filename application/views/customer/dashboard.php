@@ -1,6 +1,10 @@
 <!-- Page Content -->
 <div class="container">
-  <?= $this->session->flashdata('pesan'); ?>
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <?= $this->session->flashdata('pesan'); ?> 
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-lg-3">
