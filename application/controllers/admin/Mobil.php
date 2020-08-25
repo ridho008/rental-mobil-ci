@@ -22,7 +22,7 @@ class Mobil extends CI_Controller {
 		} else if(!$this->input->post('submit')) {
 			$data['keyword'] = $this->session->unset_userdata('keyword');
 		} else {
-			$data['keyword'] = $this->session->unset_userdata('keyword');
+			$data['keyword'] = $this->session->userdata('keyword');
 		}
 
 		// Konfigurasi Pagination

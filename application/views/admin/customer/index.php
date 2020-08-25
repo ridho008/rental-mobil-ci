@@ -44,14 +44,14 @@
                       <th>No.KTP</th>
                       <th>Aksi</th>
                     </tr>
-                    <?php if(empty($customer)) : ?>
+                    <?php if(empty($customers)) : ?>
                       <tr>
                         <td colspan="7">
                           <div class="alert alert-danger text-center" role="alert">Data Tidak Ditemukan.</div>
                         </td>
                       </tr>
                     <?php endif; ?>
-                    <?php $no = 1; foreach($customer as $c) : ?>
+                    <?php $no = 1; foreach($customers as $c) : ?>
                     <tr>
                       <td><?= ++$start; ?></td>
                       <td><?= $c['nama']; ?></td>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="card-footer text-right">
                   <?php echo $this->pagination->create_links(); ?>
-                  </div>
+                </div>
               </div>
             </div>
           </div>

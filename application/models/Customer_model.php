@@ -16,7 +16,8 @@ class Customer_model extends CI_Model {
 				'kelamin' => $this->input->post('jk', true),
 				'telepon' => $this->input->post('telepon', true),
 				'no_ktp' => $this->input->post('ktp', true),
-				'password' => password_hash($this->input->post('ktp', true), PASSWORD_DEFAULT)
+				'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
+				'role_id' => '2'
 		];
 
 		$this->db->insert('customer', $data);
@@ -32,7 +33,8 @@ class Customer_model extends CI_Model {
 				'kelamin' => $this->input->post('jk', true),
 				'telepon' => $this->input->post('telepon', true),
 				'no_ktp' => $this->input->post('ktp', true),
-				'password' => password_hash($this->input->post('ktp', true), PASSWORD_DEFAULT)
+				'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
+				'role_id' => '2'
 		];
 
 		$this->db->where('id_customer', $id);

@@ -70,7 +70,7 @@ class Customer extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		$data['start'] = $this->uri->segment(4);
-		$data['customer'] = $this->Customer_model->getCustomer($config['per_page'], $data['start'], $data['keyword']);
+		$data['customers'] = $this->Customer_model->getCustomer($config['per_page'], $data['start'], $data['keyword']);
 		$this->load->view('themeplates_admin/header', $data);
 		$this->load->view('themeplates_admin/sidebar', $data);
 		$this->load->view('admin/customer/index', $data);

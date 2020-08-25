@@ -15,7 +15,7 @@
               <!-- Kolom Pencarian -->
               <div class="row">
                 <div class="col-md-4 ml-4">
-                  <form action="<?= base_url('admin/mobil'); ?>" method="post">
+                  <form action="<?= base_url('admin/transaksi'); ?>" method="post">
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" placeholder="Masukan Keyword..." name="keyword" autocomplete="off" autofocus="on">
                       <div class="input-group-append">
@@ -32,7 +32,7 @@
                   <?= $this->session->flashdata('pesan'); ?>
                 </div>
               </div>
-                <!-- <h6 class="text-muted">Total <?= $total_rows; ?> Mobil</h6> -->
+                <h6 class="text-muted">Total <?= $total_rows; ?> Transaksi</h6>
                 <div class="table-responsive">
                   <table class="table table-bordered table-md">
                     <tr>
@@ -48,9 +48,9 @@
                       <th>Status Rental</th>
                       <th>Aksi</th>
                     </tr>
-                    <?php $no = 1; foreach($transaksi as $t) : ?>
+                    <?php foreach($transaksi as $t) : ?>
                       <tr>
-                        <td><?= $no++; ?></td>
+                        <td><?= ++$start; ?></td>
                         <td><?= $t['nama']; ?></td>
                         <td><?= $t['merk']; ?></td>
                         <td><?= $t['tgl_rental']; ?></td>
@@ -92,21 +92,6 @@
                 </div>
                 <div class="card-footer text-right">
                   <?php echo $this->pagination->create_links(); ?>
-                    <!-- <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                      </ul>
-                    </nav> -->
                   </div>
               </div>
             </div>
