@@ -48,4 +48,10 @@ class Transaksi extends CI_Controller {
 		redirect('customer/transaksi');
 	}
 
+	public function cetakInvoice($id)
+	{
+		$data['transaksi'] = $this->Transaksi_model->getAllCustomerPembayaran($id);
+		$this->load->view('customer/cetak_invoice', $data);
+	}
+
 }

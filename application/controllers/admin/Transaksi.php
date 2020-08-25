@@ -74,4 +74,63 @@ class Transaksi extends CI_Controller {
 		$this->load->view('themeplates_admin/footer');
 	}
 
+	public function pembayaran($id)
+	{
+		$data['judul'] = 'Konfirmasi Pembayaran';
+		$data['customer'] = $this->db->get_where('customer', ['username' => $this->session->userdata('username')])->row_array();
+		$data['pembayaran'] = $this->Transaksi_model->getTransaksiById($id);
+		$this->load->view('themeplates_admin/header', $data);
+		$this->load->view('themeplates_admin/sidebar', $data);
+		$this->load->view('admin/transaksi/konfirmasi_pembayaran', $data);
+		$this->load->view('themeplates_admin/footer');
+	}
+
+	public function cek_pembayaran()
+	{
+		$id_rental = $this->input->post('id_rental', true);
+		$statusPembayaran = $this->input->post('status_pembayaran', true);
+
+		$this->db->set('status_pembayaran', $statusPembayaran);
+		$this->db->where('id_rental', $id_rental);
+		$this->db->update('transaksi');
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success"><i class="far fa-lightbulb"></i> Konfirmasi Bukti Pembayaran Berhasil.</div>');
+		redirect('admin/transaksi');
+	}
+
+	public function download($id)
+	{
+		$this->load->helper('download');
+		$filePembayaran = $this->Transaksi_model->downloadPembayaran($id);
+		$file = 'assets/bukti/' . $filePembayaran['bukti_pembayaran'];
+		force_download($file, NULL);
+	}
+
+	public function transaksiSelesai($id)
+	{
+		$data['judul'] = 'Transaksi Selesai';
+		$data['transaksi'] = $this->db->get_where('transaksi', ['id_rental' => $id])->result_array();
+		$data['customer'] = $this->db->get_where('customer', ['username' => $this->session->userdata('username')])->row_array();
+
+		$this->form_validation->set_rules('tgl_penggembalian', 'Tanggal Penggembalian', 'required|trim',
+		['required' => 'Tanggal Penggembalian Harus Di Isi!']
+		);
+		$this->form_validation->set_rules('status_penggembalian', 'Status Penggembalian', 'required|trim',
+		['required' => 'Status Penggembalian Harus Di Isi!']
+		);
+		$this->form_validation->set_rules('status_rental', 'Status Rental', 'required|trim',
+		['required' => 'Status Rental Harus Di Isi!']
+		);
+		if($this->form_validation->run() == FALSE) {
+			$this->load->view('themeplates_admin/header', $data);
+			$this->load->view('themeplates_admin/sidebar', $data);
+			$this->load->view('admin/transaksi/transaksi_selesai', $data);
+			$this->load->view('themeplates_admin/footer');
+		} else {
+			$this->Transaksi_model->updateTransaksiSelesai();
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success"><i class="far fa-lightbulb"></i> Transaksi Selesai Berhasil Di Ubah.</div>');
+			redirect('admin/transaksi');
+		}
+	}
+
+
 }

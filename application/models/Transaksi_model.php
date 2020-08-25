@@ -74,6 +74,41 @@ class Transaksi_model extends CI_Model {
 		$this->db->where('id_rental', $id_rental);
 		$this->db->update('transaksi');
 	}
+
+	public function getTransaksiById($id)
+	{
+		return $this->db->get_where('transaksi', ['id_rental' => $id])->result_array();
+	}
+
+	public function downloadPembayaran($id)
+	{
+		return $this->db->get_where('transaksi', ['id_rental' => $id])->row_array();
+	}
+
+	public function updateTransaksiSelesai()
+	{
+		$id_rental = $this->input->post('id_rental');
+
+		$tgl_penggembalian = $this->input->post('tgl_penggembalian');
+		$tgl_kembali = $this->input->post('tgl_kembali');
+		$denda = $this->input->post('denda');
+
+		$x = strtotime($tgl_penggembalian);
+		$y = strtotime($tgl_kembali);
+		$selisih = floor(abs($x - $y)/(60*60*24));
+		// var_dump($selisih); die;
+		$totalDenda = $selisih * $denda;
+		// var_dump($totalDenda);
+
+		$data = [
+				'tgl_penggembalian' => $this->input->post('tgl_penggembalian'),
+				'status_penggembalian' => $this->input->post('status_penggembalian'),
+				'status_rental' => $this->input->post('status_rental'),
+				'total_denda' => $totalDenda
+		];
+		$this->db->where('id_rental', $id_rental);
+		$this->db->update('transaksi', $data);
+	}
 	
 
 }

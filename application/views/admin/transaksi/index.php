@@ -43,9 +43,11 @@
                       <th>Tanggal Kembali</th>
                       <th>Harga Sewa / Hari</th>
                       <th>Denda / Hari</th>
+                      <th>Total Denda</th>
                       <th>Tanggal Pengembalian</th>
                       <th>Status Pengembalian</th>
                       <th>Status Rental</th>
+                      <th>Cek Pembayaran</th>
                       <th>Aksi</th>
                     </tr>
                     <?php foreach($transaksi as $t) : ?>
@@ -53,10 +55,11 @@
                         <td><?= ++$start; ?></td>
                         <td><?= $t['nama']; ?></td>
                         <td><?= $t['merk']; ?></td>
-                        <td><?= $t['tgl_rental']; ?></td>
-                        <td><?= $t['tgl_kembali']; ?></td>
+                        <td><?= date('d/m/Y', strtotime($t['tgl_rental'])); ?></td>
+                        <td><?= date('d/m/Y', strtotime($t['tgl_kembali'])); ?></td>
                         <td>Rp.<?= number_format($t['harga_mobil'], 0, ',', '.'); ?></td>
                         <td>Rp.<?= number_format($t['denda'], 0, ',', '.'); ?></td>
+                        <td>Rp.<?= number_format($t['total_denda'], 0, ',', '.'); ?></td>
                         <td>
                           <?php if($t['tgl_penggembalian'] == '0000-00-00') : ?>
                             <p>-</p>
@@ -79,11 +82,18 @@
                           <?php endif; ?>
                         </td>
                         <td>
+                          <?php if(empty($t['bukti_pembayaran'])) : ?>
+                            <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Bukti Belum Di Kirim"><i class="fa fa-times-circle"></i></button>
+                            <?php else: ?>
+                              <a href="<?= base_url('admin/transaksi/pembayaran/') . $t['id_rental']; ?>" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Bukti Terkirim"><i class="fa fa-check-circle"></i></a>
+                          <?php endif; ?>
+                        </td>
+                        <td>
                           <?php if($t['status'] == '1') : ?>
                             <p>-</p>
                             <?php else : ?>
-                              <a href="<?= base_url('admin/transaksi/transaksiSelesai'); ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Cek Transaksi"><i class="fas fa-check"></i></a>
-                              <a href="<?= base_url('admin/transaksi/transaksiBatal'); ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Batal Transaksi"><i class="fas fa-times"></i></a>
+                              <a href="<?= base_url('admin/transaksi/transaksiSelesai/') . $t['id_rental']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Transaksi Selesai"><i class="fas fa-check"></i></a>
+                              <a href="<?= base_url('admin/transaksi/transaksiBatal/') . $t['id_rental']; ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Batal Transaksi"><i class="fas fa-times"></i></a>
                           <?php endif; ?>
                         </td>
                       </tr>
