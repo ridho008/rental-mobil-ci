@@ -14,6 +14,7 @@ class Transaksi_model extends CI_Model {
 		$this->db->from('transaksi');
 		$this->db->join('customer', 'customer.id_customer = transaksi.id_customer');
 		$this->db->join('mobil', 'mobil.id_mobil = transaksi.id_mobil');
+		$this->db->order_by('transaksi.id_rental', 'DESC');
 		return $this->db->get('', $limit, $start)->result_array();
 	}
 
@@ -88,6 +89,7 @@ class Transaksi_model extends CI_Model {
 	public function updateTransaksiSelesai()
 	{
 		$id_rental = $this->input->post('id_rental');
+		$id_mobil = $this->input->post('id_mobil');
 
 		$tgl_penggembalian = $this->input->post('tgl_penggembalian');
 		$tgl_kembali = $this->input->post('tgl_kembali');
@@ -99,6 +101,10 @@ class Transaksi_model extends CI_Model {
 		// var_dump($selisih); die;
 		$totalDenda = $selisih * $denda;
 		// var_dump($totalDenda);
+
+		$this->db->set('status', '1');
+		$this->db->where('id_mobil', $id_mobil);
+		$this->db->update('mobil');
 
 		$data = [
 				'tgl_penggembalian' => $this->input->post('tgl_penggembalian'),

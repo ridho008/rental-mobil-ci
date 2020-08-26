@@ -132,5 +132,19 @@ class Transaksi extends CI_Controller {
 		}
 	}
 
+	public function batal($id)
+	{
+		$data = $this->db->get_where('transaksi', ['id_rental' => $id])->row_array();
+		// var_dump($data); die;
+		$id_mobil = $data['id_mobil'];
+		// var_dump($id_mobil); die;
+		$this->db->set('status', '1');
+		$this->db->where('id_mobil', $id_mobil);
+		$this->db->update('mobil');
+		$this->db->delete('transaksi', ['id_rental' => $id]);
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success"><i class="fa fa-info-circle" aria-hidden="true"></i> Transaksi Berhasil Di Batalkan.</div>');
+		redirect('admin/transaksi');
+	}
+
 
 }

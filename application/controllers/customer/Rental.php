@@ -45,7 +45,7 @@ class Rental extends CI_Controller {
 			$this->load->view('themeplates_customers/footer');
 		} else {
 			$this->Rental_model->aksiTambahRental($id);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success mt-5"><i class="fa fa-check-circle" aria-hidden="true"></i> Anda Berhasil Merental Mobil!.</div>');
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success mt-1"><i class="fa fa-check-circle" aria-hidden="true"></i> Anda Berhasil Merental Mobil!.</div>');
 				redirect('home');
 		}
 	}

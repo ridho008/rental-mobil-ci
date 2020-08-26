@@ -44,9 +44,22 @@
             <a class="nav-link" href="#">Services</a>
           </li>
           <?php if($this->session->userdata('role_id') == 2) : ?>
-            <li class="nav-item">
+            <?php if($notif == '0') : ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('customer/transaksi'); ?>" class="btn btn-primary">Transaksi <span class="badge badge-light" data-toggle="tooltip" data-placement="bottom" title="<?= $notif; ?> Anda Belum Melakukan Transaksi"><?= $notif; ?></span></a>
+              </li>
+              <?php else : ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?= base_url('customer/transaksi'); ?>" class="btn btn-primary">Transaksi <span class="badge badge-light" data-toggle="tooltip" data-placement="bottom" title="<?= $notif; ?> Transaksi Belum Di Bayar"><?= $notif; ?></span></a>
+                </li>
+            <?php endif; ?>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('customer/transaksi'); ?>" class="btn btn-primary">Transaksi <span class="badge badge-light" data-toggle="tooltip" data-placement="bottom" title="<?= $notif; ?> Transaksi Belum Di Bayar"><?= $notif; ?></span></a>
+            </li> -->
+            <!-- select * from transaksi where status_rental = '0' -->
+            <!-- <li class="nav-item">
               <a class="nav-link" href="<?= base_url('customer/transaksi'); ?>">Transaksi</a>
-            </li>
+            </li> -->
             <div class="dropdown d-inline">
               <button class="btn btn-outline-light btn-sm dropdown-toggle mt-1" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Hi, <?= $customer['nama']; ?>
@@ -59,9 +72,19 @@
             </div>
             <?php else : ?>
               <?php if($this->session->userdata('role_id') == 1) : ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" href="<?= base_url('customer/transaksi'); ?>">Transaksi</a>
-                </li>
+                </li> -->
+                <?php if($notif == '0') : ?>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('customer/transaksi'); ?>" class="btn btn-primary">Transaksi <span class="badge badge-light" data-toggle="tooltip" data-placement="bottom" title="<?= $notif; ?> Anda Belum Melakukan Transaksi"><?= $notif; ?></span></a>
+                  </li>
+                  <?php else : ?>
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?= base_url('customer/transaksi'); ?>" class="btn btn-primary">Transaksi <span class="badge badge-light" data-toggle="tooltip" data-placement="bottom" title="<?= $notif; ?> Transaksi Belum Di Bayar"><?= $notif; ?></span></a>
+                    </li>
+                <?php endif; ?>
+                
                 <li class="nav-item d-none">
                   <a class="nav-link" href="<?= base_url('auth/daftar'); ?>">Daftar</a>
                 </li>

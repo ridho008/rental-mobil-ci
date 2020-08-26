@@ -12,6 +12,7 @@ class Rental_model extends CI_Model {
 				'tgl_kembali' => $this->input->post('tgl_kembali'),
 				'harga' => $this->input->post('harga'),
 				'denda' => $this->input->post('denda'),
+				'total_denda' => '0',
 				'tgl_penggembalian' => '-',
 				'status_penggembalian' => 'Belum Kembali',
 				'status_rental' => 'Belum Selesai'

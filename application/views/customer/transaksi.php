@@ -37,7 +37,7 @@
                     <th>Merk Mobil</th>
                     <th>No.Plat</th>
                     <th>Harga Sewa</th>
-                    <th>Aksi</th>
+                    <th><i class="fa fa-cog" aria-hidden="true"></i></th>
                   </tr>
                   <?php if(empty($transaksi)) : ?>
                     <tr>
@@ -56,9 +56,10 @@
                       <td>Rp.<?= number_format($t['harga_mobil'], 0, ',', '.'); ?></td>
                       <td>
                         <?php if($t['status_rental'] == 'Selesai') : ?>
-                          <button class="btn btn-danger btn-sm">Rental Selesai</button>
+                          <div class="badge badge-success p-2"><i class="fa fa-info" aria-hidden="true"></i> Rental Selesai</div>
                           <?php else : ?>
-                            <a href="<?= base_url('customer/transaksi/pembayaran/') . $t['id_rental']; ?>" class="btn btn-success btn-sm">Cek Pembayaran</a>
+                            <a href="<?= base_url('customer/transaksi/pembayaran/') . $t['id_rental']; ?>" class="btn btn-primary btn-sm">Cek Pembayaran</a>
+                            <a href="<?= base_url('customer/transaksi/batal/') . $t['id_rental']; ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Batalkan Pesanan">Batal</a>
                         <?php endif; ?>
                       </td>
                     </tr>

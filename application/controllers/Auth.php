@@ -41,6 +41,7 @@ class Auth extends CI_Controller {
 				// jika benar
 				$data = [
 						'username' => $customer['username'],
+						'id_customer' => $customer['id_customer'],
 						'role_id' => $customer['role_id']
 				];
 				// masukan $data kedalam session
@@ -112,6 +113,7 @@ class Auth extends CI_Controller {
 	public function logout()
 	{
 		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('id_customer');
 		$this->session->unset_userdata('role_id');
 		$this->session->set_flashdata('pesan', '<div class="alert alert-success"><i class="far fa-lightbulb"></i> Berhasil Logout.</div>');
 			redirect('auth');

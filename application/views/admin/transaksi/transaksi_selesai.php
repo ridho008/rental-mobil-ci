@@ -13,6 +13,7 @@
               <div class="card-body">
                 <form action="" method="post">
                   <?php foreach($transaksi as $t) : ?>
+                    <input type="text" name="id_mobil" value="<?= $t['id_mobil']; ?>">
                     <input type="hidden" name="id_rental" value="<?= $t['id_rental']; ?>">
                     <input type="hidden" name="tgl_kembali" value="<?= $t['tgl_kembali']; ?>">
                     <input type="hidden" name="denda" value="<?= $t['denda']; ?>">

@@ -1,7 +1,7 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1><i class="fas fa-car"></i> Data Customer</h1>
+      <h1><i class="fas fa-users"></i> Data Customer</h1>
     </div>
     <div class="section-body">
 	      <div class="row">

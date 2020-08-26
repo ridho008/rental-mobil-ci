@@ -1,13 +1,12 @@
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1><i class="fas fa-car"></i> <?= $judul; ?></h1>
+      <h1><i class="fas fa-random"></i> <?= $judul; ?></h1>
     </div>
     <div class="section-body">
       <h2 class="section-title">Semua <?= $judul; ?></h2>
 	      <div class="row">
           <div class="col-12 col-md-12 col-lg-12">
-	      	<a href="<?= base_url('admin/mobil/tambahMobil'); ?>" class="btn btn-primary mb-2"><i class="fas fa-plus"></i> Tambah Data Mobil</a>
             <div class="card">
               <div class="card-header">
                 <h4>Transaksi</h4>
@@ -90,10 +89,11 @@
                         </td>
                         <td>
                           <?php if($t['status'] == '1') : ?>
-                            <p>-</p>
+                            <!-- <p>-</p> -->
+                            <span class="badge badge-success">Transaksi Selesai</span>
                             <?php else : ?>
                               <a href="<?= base_url('admin/transaksi/transaksiSelesai/') . $t['id_rental']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Transaksi Selesai"><i class="fas fa-check"></i></a>
-                              <a href="<?= base_url('admin/transaksi/transaksiBatal/') . $t['id_rental']; ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Batal Transaksi"><i class="fas fa-times"></i></a>
+                              <a href="<?= base_url('admin/transaksi/batal/') . $t['id_rental']; ?>" onclick="return confirm('Yakin ?')" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Batal Transaksi"><i class="fas fa-times"></i></a>
                           <?php endif; ?>
                         </td>
                       </tr>
