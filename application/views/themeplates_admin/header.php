@@ -12,4 +12,6 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?= base_url('assets/assets_stisla'); ?>/assets/css/style.css">
   <link rel="stylesheet" href="<?= base_url('assets/assets_stisla'); ?>/assets/css/components.css">
+  <script src="<?= base_url('assets/ckeditor'); ?>/ckeditor.js"></script>
+  
 </head>

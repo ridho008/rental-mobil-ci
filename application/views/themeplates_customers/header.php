@@ -18,6 +18,7 @@
   <link href="<?= base_url('assets/assets_shop/'); ?>css/mystyle.css" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script src="<?= base_url('assets/ckeditor/'); ?>ckeditor.js"></script>
 
 </head>
 
@@ -33,12 +34,12 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="<?= base_url(); ?>">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="<?= base_url('artikel'); ?>">Artikel</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
@@ -65,7 +66,7 @@
                 Hi, <?= $customer['nama']; ?>
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item has-icon" href="#"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a>
+                <a class="dropdown-item has-icon" href="<?= base_url('customer/panel') ?>"><i class="fa fa-user" aria-hidden="true"></i> Akun</a>
                 <a class="dropdown-item has-icon" href="auth/gantipass"><i class="fa fa-key" aria-hidden="true"></i> Ganti Password</a>
                 <a class="dropdown-item has-icon" href="<?= base_url('home/logout'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
               </div>
@@ -107,7 +108,7 @@
                 Hi, <?= $customer['nama']; ?>
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item has-icon" href="#"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a>
+                <a class="dropdown-item has-icon" href="<?= base_url('admin/dashboard'); ?>"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
                 <a class="dropdown-item has-icon" href="admin/auth/gantipass"><i class="fa fa-key" aria-hidden="true"></i> Ganti Password</a>
                 <a class="dropdown-item has-icon" href="<?= base_url('auth/logout'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
               </div>

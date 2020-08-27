@@ -15,6 +15,7 @@ class Home extends CI_Controller {
 		$data['mobil'] = $this->Mobil_model->getAllMobil();
 		$data['kategori'] = $this->db->get('type')->result_array();
 		$data['notif'] = $this->db->get_where('transaksi', ['status_pembayaran' => '0', 'status_rental' => 'Belum Selesai', 'id_customer' => $this->session->userdata('id_customer')])->num_rows();
+		// var_dump($this->session->userdata('id_customer')); die;
 		$this->load->view('themeplates_customers/header', $data);
 		$this->load->view('customer/dashboard', $data);
 		$this->load->view('themeplates_customers/footer');
@@ -26,6 +27,7 @@ class Home extends CI_Controller {
 		$data['customer'] = $this->db->get_where('customer', ['username' => $this->session->userdata('username')])->row_array();
 		$data['detail'] = $this->Mobil_model->getMobilTypeJoin($id);
 		// $data['detail'] = $this->Mobil_model->getAllMobil();
+		$data['notif'] = $this->db->get_where('transaksi', ['status_pembayaran' => '0', 'status_rental' => 'Belum Selesai', 'id_customer' => $this->session->userdata('id_customer')])->num_rows();
 		$data['kategori'] = $this->db->get('type')->result_array();
 		$this->load->view('themeplates_customers/header', $data);
 		$this->load->view('customer/detail', $data);

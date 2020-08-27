@@ -169,6 +169,7 @@
             <li class="menu-header">Dashboard</li>
             <li><a class="nav-link" href="<?= base_url('admin/dashboard'); ?>"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
             <li class="menu-header">Data Master</li>
+            <li><a class="nav-link" href="<?= base_url('admin/artikel'); ?>"><i class="fas fa-list"></i> <span>Artikel</span></a></li>
             <li><a class="nav-link" href="<?= base_url('admin/mobil'); ?>"><i class="fas fa-car"></i> <span>Data Mobil</span></a></li>
             <li><a class="nav-link" href="<?= base_url('admin/type'); ?>"><i class="fas fa-grip-horizontal"></i> <span>Data Type</span></a></li>
             <li><a class="nav-link" href="<?= base_url('admin/customer'); ?>"><i class="fas fa-users"></i> <span>Data Customer</span></a></li>

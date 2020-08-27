@@ -18,6 +18,7 @@ class Rental extends CI_Controller {
 		$data['judul'] = 'Pesan Mobil';
 		$data['kategori'] = $this->db->get('type')->result_array();
 		$data['mobil'] = $this->Mobil_model->getMobilById($id);
+		$data['notif'] = $this->db->get_where('transaksi', ['status_pembayaran' => '0', 'status_rental' => 'Belum Selesai', 'id_customer' => $this->session->userdata('id_customer')])->num_rows();
 
 		$this->form_validation->set_rules('harga', 'Harga Sewa', 'required|trim',
 		[

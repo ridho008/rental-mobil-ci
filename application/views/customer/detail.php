@@ -56,12 +56,12 @@
                 <tr>
                   <th>Status</th>
                   <td>
-                    <?php if($this->session->userdata('role_id') == 2) : ?>
-                    <?php if($detail['status'] == '1') : ?>
-                      <a href="<?= base_url('customer/rental/tambahRental/') . $detail['id_mobil']; ?>" class="btn btn-outline-primary btn-sm">Rental Sekarang</a>
-                    <?php else : ?>
-                      <div class="badge badge-danger">Tidak Tersedia</div>
-                    <?php endif; ?>
+                    <?php if($this->session->userdata('role_id')) : ?>
+                      <?php if($detail['status'] == '1') : ?>
+                        <a href="<?= base_url('customer/rental/tambahRental/') . $detail['id_mobil']; ?>" class="btn btn-outline-primary btn-sm">Rental Sekarang</a>
+                      <?php else : ?>
+                        <div class="badge badge-danger">Sedang Di Sewa</div>
+                      <?php endif; ?>
                     <?php else : ?>
                       <div class="badge badge-info p-1">Login, Jika Ingin Rental Mobil.</div>
                   <?php endif; ?>
