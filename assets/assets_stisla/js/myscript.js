@@ -1,6 +1,5 @@
 $(function() {
-	
-	
+	// ------------------HALAMAN ARTIKEL ------------------
 	$('.tombolTambahArtikel').on('click', function() {
 		// mengubah judul tambah artikel yang di timpa di bawah
 		$('#formArtikelModalLabel').html('Tambah Data Artikel');
@@ -47,4 +46,67 @@ $(function() {
 			}
 		});
 	});
+
+	// ------------------ HALAMAN KATEGORI ADMIN----------------------------
+
+	$('.formModalTambahArtikel').click(function() {
+		$('#formModalLabel').html('Tambah Data Kategori');
+		$('.modal-footer button[type=submit]').html('Tambah');
+
+		$('#kategori').val('');
+		$('#id_kategori').val('');
+	});
+
+	$('.formModalUbahArtikel').click(function() {
+		$('#formModalLabel').html('Ubah Data Kategori');
+		$('.modal-footer button[type=submit]').html('Ubah');
+
+		$('.modal-body form').attr('action', 'http://localhost/rental-mobil-ci/admin/kategori/ubahkategori')
+
+		const id = $(this).data('id');
+		// console.log(id);
+
+		$.ajax({
+			url: 'http://localhost/rental-mobil-ci/admin/kategori/getkategoriartikel',
+			data: {id: id},
+			method: 'post',
+			dataType: 'json',
+			success: function(data) {
+				// console.log(data);
+				$('#id_kategori').val(data.id_kategori);
+				$('#kategori').val(data.nama_kategori);
+			}
+		});
+	});
+
+
+	// ------------------ HALAMAN BANK ADMIN-------------
+	$('.tombolTambahBank').click(function() {
+		$('#formBankModalLabel').html('Tambah Data Bank');
+		$('button[type=submit]').html('Tambah');
+	});
+
+	$('.tombolUbahBank').click(function() {
+		$('#formBankModalLabel').html('Ubah Data Bank');
+		$('button[type=submit]').html('Ubah');
+
+		$('.modal-body form').attr('action', 'http://localhost/rental-mobil-ci/admin/bank/ubahbank');
+
+		const id = $(this).data('id');
+		// console.log(id);
+
+		$.ajax({
+			url: 'http://localhost/rental-mobil-ci/admin/bank/getubahbank',
+			method: 'post',
+			data: {id: id},
+			dataType: 'json',
+			success: function(data) {
+				// console.log(data);
+				$('#nama').val(data.nama_rek);
+				$('#id_bank').val(data.id_bank);
+				$('#no').val(data.no_rek);
+			}
+		});
+	});
+
 });

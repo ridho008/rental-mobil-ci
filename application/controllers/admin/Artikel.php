@@ -105,6 +105,9 @@ class Artikel extends CI_Controller {
 
 	public function hapus($id)
 	{
+		$this->db->where('id_berita', $id);
+		$row = $this->db->get('berita')->row_array();
+		unlink('./assets/berita/' . $row['foto_berita']);
 		$this->db->delete('berita', ['id_berita' => $id]);
 		$this->session->set_flashdata('pesan', '<div class="alert alert-success"><i class="far fa-lightbulb"></i> Data Artikel Berhasil Di Hapus.</div>');
 		redirect('admin/artikel');

@@ -37,7 +37,7 @@ class Transaksi extends CI_Controller {
 		$data['customer'] = $this->db->get_where('customer', ['username' => $this->session->userdata('username')])->row_array();
 		$data['transaksi'] = $this->Transaksi_model->getAllCustomerPembayaran($id);
 		$data['kategori'] = $this->db->get('type')->result_array();
-
+		$data['bank'] = $this->db->get('bank')->result_array();
 		$this->load->view('themeplates_customers/header', $data);
 		$this->load->view('customer/pembayaran', $data);
 		$this->load->view('themeplates_customers/footer');

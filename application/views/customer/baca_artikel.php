@@ -4,7 +4,7 @@
   <div class="row">
 
     <div class="col-lg-3">
-      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-10 text-center">Kategori</h4>
+      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-10 text-center">Tipe Mobil</h4>
       <div class="list-group">
         <?php foreach($kategori as $k) : ?>
         <a href="<?= base_url('customer/kategori/index/') . $k['id_type']; ?>" class="list-group-item list-group-item-action">
@@ -36,12 +36,27 @@
             </div>
             <div class="card-body">
               <img src="<?= base_url('assets/berita/') . $berita['foto_berita']; ?>" class="img-fluid img-thumbnail">
-              <p class="blockquote-footer mt-1">Penulis : <?= $berita['nama']; ?> | <?= date('d-m-Y', strtotime($berita['tgl_post'])); ?></p>
+              <p class="blockquote-footer mt-1">Penulis : <?= $berita['nama']; ?> | <?= date('d-m-Y', strtotime($berita['tgl_post'])); ?> | <a href="" class="badge badge-secondary pt-1 pr-1"><i class="fa fa-tag"></i> <?= $berita['nama_kategori']; ?></a></p>
             <hr>
               <?= $berita['deskripsi']; ?>
+          <!-- Profil -->
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="<?= base_url('assets/profil/Profile.jpg'); ?>" class="card-img" alt="Penyemangat">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><?= $customer['nama']; ?></h5>
+                      <p class="card-text">Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Magnam illo aperiam ut eveniet nihil autem ?</p>
+                      <p class="card-text"><small class="text-muted">pengagum rahasia</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <!-- Profil -->
             </div>
           </div>
-
 
         </div>
 

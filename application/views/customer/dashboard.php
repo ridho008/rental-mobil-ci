@@ -8,7 +8,7 @@
 
   <div class="row">
     <div class="col-lg-3">
-      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-light text-center">Kategori</h4>
+      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-light text-center">Tipe Mobil</h4>
       <div class="list-group">
         <?php foreach($kategori as $k) : ?>
         <a href="<?= base_url('customer/kategori/index/') . $k['id_type']; ?>" class="list-group-item list-group-item-action">
@@ -117,15 +117,15 @@
               <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
               <?php if($this->session->userdata('role_id') == 2) : ?>
                   <?php if($m['status'] == '1') : ?>
-                    <div><a href="<?= base_url('customer/rental/tambahRental/') . $m['id_mobil']; ?>"class="btn btn-warning text-light">Rental</a></div>
+                    <div><a href="<?= base_url('customer/rental/tambahRental/') . $m['id_mobil']; ?>"class="btn btn-warning text-light"><i class="fa fa-cart-plus" aria-hidden="true"></i> Rental</a></div>
                   <?php else : ?>
-                    <div class="btn btn-danger disabled btn-sm">Sedang Di Sewa</div>
+                    <div class="btn btn-danger disabled btn-sm"><i class="fa fa-road" aria-hidden="true"></i> Sedang Di Sewa</div>
                   <?php endif; ?>
                 <?php else : ?>
                   <?php if($m['status'] == '1') : ?>
-                    <div><a href="<?= base_url('customer/rental/tambahRental/') . $m['id_mobil']; ?>"class="btn btn-warning text-light">Rental</a></div>
+                    <div><a href="<?= base_url('customer/rental/tambahRental/') . $m['id_mobil']; ?>"class="btn btn-warning text-dark"><i class="fa fa-cart-plus" aria-hidden="true"></i> Rental</a></div>
                   <?php else : ?>
-                    <div class="btn btn-danger disabled btn-sm">Sedang Di Sewa</div>
+                    <div class="btn btn-danger disabled btn-sm"><i class="fa fa-road" aria-hidden="true"></i> Sedang Di Sewa</div>
                   <?php endif; ?>
               <?php endif; ?>
             </div>

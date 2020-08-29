@@ -168,6 +168,9 @@ class Mobil extends CI_Controller {
 
 	public function hapusMobil($id)
 	{
+		$this->db->where('id_mobil', $id);
+		$row = $this->db->get('mobil')->row_array();
+		unlink('./assets/assets_stisla/img/mobil/' . $row['gambar']);
 		$this->db->delete('mobil', ['id_mobil' => $id]);
 		$this->session->set_flashdata('pesan', '<div class="alert alert-success"><i class="far fa-lightbulb"></i> Data Mobil Berhasil Di Hapus.</div>');
 			redirect('admin/mobil');

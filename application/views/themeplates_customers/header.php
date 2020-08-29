@@ -41,9 +41,6 @@
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('artikel'); ?>">Artikel</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
           <?php if($this->session->userdata('role_id') == 2) : ?>
             <?php if($notif == '0') : ?>
               <li class="nav-item">

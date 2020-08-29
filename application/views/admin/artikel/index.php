@@ -89,22 +89,7 @@
                   </table>
                 </div>
                 <div class="card-footer text-right">
-                  <?php echo $this->pagination->create_links(); ?>
-                    <!-- <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                      </ul>
-                    </nav> -->
+                  <?php echo $this->pagination->create_links(); ?> 
                   </div>
               </div>
             </div>
@@ -129,7 +114,7 @@
       </div>
       <div class="modal-body">
         <form action="" enctype="multipart/form-data" method="post">
-          <input type="hidden" name="id_berita" id="id_berita">
+          <input type="text" name="id_berita" id="id_berita">
           <div class="form-group">
             <label for="kategori">Kategori</label>
             <select name="kategori" id="kategori" class="form-control">

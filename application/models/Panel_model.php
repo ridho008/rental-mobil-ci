@@ -2,14 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Panel_model extends CI_Model {
-	public function getAllByUser()
+	public function getAllByUser($limit, $start, $keyword = null)
 	{
+		if($keyword) {
+			$this->db->like('judul_berita', $keyword);
+		}
 		$this->db->select('*');
 		$this->db->from('berita');
 		$this->db->join('customer', 'customer.id_customer = berita.updateby');
 		$this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori');
 		$this->db->where('berita.updateby', $this->session->userdata('id_customer'));
-		return $this->db->get()->result_array();
+		$this->db->order_by('berita.id_berita', 'DESC');
+		return $this->db->get('', $limit, $start)->result_array();
 	}
 
 	public function aksiTambahArtikel()

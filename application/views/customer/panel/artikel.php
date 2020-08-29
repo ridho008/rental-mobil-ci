@@ -31,10 +31,25 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <?= $this->session->flashdata('pesan'); ?>
         </div>
       </div> 
+      <!-- Kolom Pencarian -->
+      <div class="row">
+        <div class="col-md-4 offset-md-8">
+          <form action="<?= base_url('customer/panel/artikel/'); ?>" method="post">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Masukan Keyword..." name="keyword" autocomplete="off" autofocus="on">
+              <div class="input-group-append">
+                <input type="submit" name="submit" class="btn btn-primary" value="Cari">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Kolom Pencarian -->
+      <!-- <h5 class="text-muted">Total <?= $total_rows; ?> Artikel</h5> -->
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -53,7 +68,7 @@
             <?php if(empty($artikel)) : ?>
             <tr>
               <td colspan="8">
-                <div class="alert alert-danger text-center" role="alert"><i class="fa fa-info-circle"></i> Anda Belum Membuat Artikel.</div>
+                <div class="alert alert-danger text-center" role="alert"><i class="fa fa-info-circle"></i> Data Tidak Ditemukan!.</div>
               </td>
             </tr>
           <?php endif; ?>
@@ -61,7 +76,7 @@
           $no = 1;
           foreach($artikel as $a) : ?>
           <tr>
-            <td><?= $no++; ?></td>
+            <td><?= ++$start; ?></td>
             <td>
               <img src="<?= base_url('assets/berita/') . $a['foto_berita']; ?>" width="80">           
             </td>
@@ -71,14 +86,21 @@
             <td><?= date('d-m-Y', strtotime($a['tgl_post'])); ?></td>
             <td><?= $a['nama']; ?></td>
             <td>
-              <a href="<?= base_url('customer/panel/ubahartikel/') . $a['id_berita']; ?>" class="btn btn-info"><i class="fa fa-edit"></i></a>
-              <a href="<?= base_url('customer/panel/hapusartikel/') . $a['id_berita']; ?>" class="btn btn-danger" onclick="return confirm('Yakin ?')"><i class="fa fa-trash"></i></a>
+              <a href="<?= base_url('customer/panel/lihat/') . $a['id_berita']; ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+              <a href="<?= base_url('customer/panel/ubahartikel/') . $a['id_berita']; ?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+              <a href="<?= base_url('customer/panel/hapusartikel/') . $a['id_berita']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ?')"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
           <?php endforeach; ?>
           </tbody>
         </table>
       </div>
+        <div class="row">
+          <div class="col-md-6">
+            <?= $this->pagination->create_links(); ?>
+          </div>
+        </div>
     </main>
   </div>
 </div>
+

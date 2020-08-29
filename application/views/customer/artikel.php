@@ -4,7 +4,7 @@
   <div class="row">
 
     <div class="col-lg-3">
-      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-10 text-center">Kategori</h4>
+      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-10 text-center">Tipe Mobil</h4>
       <div class="list-group">
         <?php foreach($kategori as $k) : ?>
         <a href="<?= base_url('customer/kategori/index/') . $k['id_type']; ?>" class="list-group-item list-group-item-action">
@@ -35,8 +35,9 @@
           <div class="media">
             <img src="<?= base_url('assets/berita/') . $b['foto_berita']; ?>" class="mr-3" width="250">
             <div class="media-body">
-              <h5 class="mt-0"><?= $b['judul_berita']; ?></h5>
-              <?= substr($b['deskripsi'], 0,300); ?>... <a href="<?= base_url('artikel/baca/') . $b['id_berita']; ?>" class="btn btn-warning text-light btn-sm d-inline-flex">Baca Selengkapnya</a>
+              <h5 class="mt-0"><a href="<?= base_url('artikel/baca/') . $b['id_berita']; ?>"><?= $b['judul_berita']; ?></a></h5>
+              <a href="<?= base_url('artikel/kategori/') . $b['id_kategori']; ?>"><span class="badge badge-secondary"><?= $b['nama_kategori']; ?></span></a>
+              <?= substr($b['deskripsi'], 0,200); ?>... <a href="<?= base_url('artikel/baca/') . $b['id_berita']; ?>" class="btn btn-warning text-light btn-sm">Baca Selengkapnya</a>
             </div>
           </div>
         </div>

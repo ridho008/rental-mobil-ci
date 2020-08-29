@@ -11,6 +11,7 @@
             <div class="card card-primary">
               <div class="card-header"><h4>Login</h4></div>
               <div class="card-body">
+              <p>Admin : ridho123, pass : 123 & user : rozi123, pass : 123</p>
               <?= $this->session->flashdata('pesan'); ?>
                 <form method="post" action="">
                   <div class="form-group">

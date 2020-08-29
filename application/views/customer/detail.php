@@ -4,7 +4,7 @@
   <div class="row">
 
     <div class="col-lg-3">
-      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-light text-center">Kategori</h4>
+      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-light text-center">Tipe Mobil</h4>
       <div class="list-group">
         <?php foreach($kategori as $k) : ?>
         <a href="<?= base_url('customer/kategori/index/') . $k['id_type']; ?>" class="list-group-item list-group-item-action">

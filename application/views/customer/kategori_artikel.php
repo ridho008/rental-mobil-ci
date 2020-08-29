@@ -24,31 +24,26 @@
 
     <div class="col-lg-9">
       <div class="row">
-        <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-50 ml-3">Kategori Tipe <?= $kateid['nama_type']; ?></h4>
-          <?php if(empty($mobil)) : ?>
+        <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-50 ml-3">Kategori Artikel</h4>
+          <?php if(empty($berita)) : ?>
             <div class="col-lg-12 col-md-12 mb-5">
-              <div class="alert alert-danger" role="alert">Kategori <b><?= $kateid['nama_type']; ?></b> Tidak Ditemukan.</div>
+              <div class="alert alert-danger" role="alert">Kategori <b>Berita</b> Tidak Ditemukan.</div>
             </div>
           <?php endif; ?>
-        <?php foreach($mobil as $m) : ?>
+        <?php foreach($berita as $b) : ?>
         <div class="col-lg-4 col-md-6 mb-5">
           <div class="card h-100">
-            <a href="<?= base_url('home/detail/') . $m['id_mobil']; ?>"><img class="card-img-top" src="<?= base_url('assets/assets_stisla/img/mobil/') . $m['gambar']; ?>" alt=""></a>
+            <a href="<?= base_url('artikel/baca/') . $b['id_berita']; ?>"><img class="card-img-top" src="<?= base_url('assets/berita/') . $b['foto_berita']; ?>" alt="<?= $b['judul_berita']; ?>"></a>
             <div class="card-body">
               <h4 class="card-title mb-0">
-                <a href="<?= base_url('home/detail/') . $m['id_mobil']; ?>" class="text-secondary"><?= $m['merk']; ?></a>
+                <a href="<?= base_url('artikel/baca/') . $b['id_berita']; ?>" class="text-secondary"><?= $b['judul_berita']; ?></a>
               </h4>
-              <a href="<?= base_url('customer/type/') . $k['id_type']; ?>" class="badge badge-dark"><?= $m['nama_type']; ?></a>
-              <h5><?= $m['no_plat']; ?></h5>
+              <a href="<?= base_url('artikel/kategori/') . $b['id_kategori']; ?>" class="badge badge-dark"><?= $b['nama_kategori']; ?></a>
+              <h6><?= substr($b['deskripsi'], 0,100); ?> ...</h6>
               <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p> -->
             </div>
             <div class="card-footer">
               <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
-              <?php if($m['status'] == '1') : ?>
-                <div><a href="<?= base_url('customer/rental/tambahRental/') . $m['id_mobil']; ?>"class="btn btn-warning text-light">Rental</a></div>
-              <?php else : ?>
-                <div class="btn btn-danger disabled">Di Sewa</div>
-              <?php endif; ?>
             </div>
           </div>
         </div>

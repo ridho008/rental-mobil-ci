@@ -1,5 +1,5 @@
   <!-- Footer -->
-  <footer class="py-3 bg-dark fixed-bottom">
+  <footer class="py-3 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Rental Mobil Surya <i class="fa fa-heart-o text-danger" aria-hidden="true"></i> <?= date('Y'); ?></p>
     </div>

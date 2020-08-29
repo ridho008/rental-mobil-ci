@@ -14,6 +14,15 @@ class Artikel_model extends CI_Model {
 		return $this->db->get('', $limit, $start)->result_array();
 	}
 
+	public function getAllBeritaKategori()
+	{
+		$this->db->select('*');
+		$this->db->from('berita');
+		$this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori');
+		$this->db->order_by('berita.id_berita', 'DESC');
+		return $this->db->get()->result_array();
+	}
+
 	public function tambahArtikel()
 	{
 		$fotoBerita = $_FILES['foto']['name'];
@@ -104,8 +113,27 @@ class Artikel_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('berita');
 		$this->db->join('customer', 'customer.id_customer = berita.updateby');
+		$this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori');
 		$this->db->where('berita.id_berita', $id);
 		return $this->db->get()->row_array();
+	}
+
+	public function joinArtikelKategori()
+	{
+		$this->db->select('*');
+		$this->db->from('berita');
+		$this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori');
+		$this->db->where('berita.id_kategori', 'kategori.id_kategori');
+		return $this->db->get()->result_array();
+	}
+
+	public function joinBeritaKategoriById($id)
+	{
+		$this->db->select('*');
+		$this->db->from('berita');
+		$this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori');
+		$this->db->where('berita.id_kategori', $id);
+		return $this->db->get()->result_array();
 	}
 
 }

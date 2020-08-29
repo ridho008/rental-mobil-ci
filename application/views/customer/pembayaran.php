@@ -4,7 +4,7 @@
   <div class="row">
 
     <div class="col-lg-3">
-      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-10 text-center">Kategori</h4>
+      <h4 class="mt-4 list-group-item list-group-item-action bg-warning text-black-10 text-center">Tipe Mobil</h4>
       <div class="list-group">
         <?php foreach($kategori as $k) : ?>
         <a href="<?= base_url('customer/kategori/index/') . $k['id_type']; ?>" class="list-group-item list-group-item-action">
@@ -89,10 +89,9 @@
             <div class="card-body">
               <p>Silahkan melakukan pembayaran melalui no.rekening berikut.</p>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">BRI.28642836489237</li>
-                <li class="list-group-item">BCA.98347289374723</li>
-                <li class="list-group-item">Mandiri Syariah.3826482374</li>
-                <li class="list-group-item">Mandiri.2863482378</li>
+                <?php foreach($bank as $b) : ?>
+                  <li class="list-group-item"><?= $b['nama_rek']; ?> - <?= $b['no_rek']; ?></li>
+                <?php endforeach; ?>
               </ul>
               <?php if(empty($t['bukti_pembayaran'])) { ?>
                 <button type="button" class="btn btn-info btn-sm w-100" data-toggle="modal" data-target="#exampleModal">
@@ -153,7 +152,7 @@
       </div>
       <div class="modal-body">
         <form action="<?= base_url('customer/transaksi/uploadbuktii'); ?>" method="post" enctype="multipart/form-data">
-          <input type="text" name="id_rental" value="<?= $t['id_rental']; ?>">
+          <input type="hidden" name="id_rental" value="<?= $t['id_rental']; ?>">
           <div class="form-group">
             <label for="bukti">Bukti</label>
             <input type="file" name="bukti" id="bukti" class="form-control-file">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 26, 2020 at 03:09 PM
+-- Generation Time: Aug 29, 2020 at 09:12 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -24,15 +24,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `bank`
 --
 
-CREATE TABLE `admin` (
-  `id_admin` int(11) NOT NULL,
-  `nama_admin` varchar(50) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(256) NOT NULL
+CREATE TABLE `bank` (
+  `id_bank` int(11) NOT NULL,
+  `no_rek` int(11) NOT NULL,
+  `nama_rek` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bank`
+--
+
+INSERT INTO `bank` (`id_bank`, `no_rek`, `nama_rek`) VALUES
+(1, 2147483647, 'Mandiri'),
+(2, 2147483647, 'BCA'),
+(3, 27354876, 'BRI');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
+--
+
+CREATE TABLE `berita` (
+  `id_berita` int(11) NOT NULL,
+  `judul_berita` varchar(100) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `id_kategori` int(11) NOT NULL,
+  `tgl_post` date NOT NULL,
+  `updateby` varchar(50) NOT NULL,
+  `terbit` int(11) NOT NULL,
+  `foto_berita` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `berita`
+--
+
+INSERT INTO `berita` (`id_berita`, `judul_berita`, `deskripsi`, `id_kategori`, `tgl_post`, `updateby`, `terbit`, `foto_berita`) VALUES
+(8, 'nmn', 'oiuopi', 1, '2020-08-27', '6', 1, 'car-4.jpg'),
+(12, '5 Mobil Paling Murah yang Dijual di Indonesia Saat Ini', '<p>Ketika saat ini Anda menggunakan kendaraan roda dua untuk keseharian, lalu berfikir untuk beralih menggunakan kendaraan roda empat alias mobil tapi terbentur dengan budget yang tidak banyak. Maka tentunya pilihan mobil dengan harga terjangkau adalah solusinya.</p>\r\n\r\n<p>Di Indonesia, beberapa pabrikan telah menjual mobil dengan harga yang relatif terjangkau dan memiliki beberapa varian yang dapat Anda pertimbangkan. Jika tidak membutuhkan kapasitas 7 penumpang, maka Anda bisa memilih model&nbsp;city car dengan harga murah yang tentunya menarik.</p>\r\n\r\n<p>Menurut data yang berhasil dihimpun OtoDriver dari beberapa situs resmi produsen penjual mobil, berikut ini adalah 5 mobil penumpang paling murah yang dijual di tanah air per Agustus 2019.</p>\r\n\r\n<p><img alt=\"\" src=\"https://otodriver.com/image/load/800/0/gallery/daihatsu-ayla-1-000-cc1554.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>1. Daihatsu New Ayla 1.0 D M/T</strong></p>\r\n\r\n<p>Daihatsu Ayla 1.000 cc tipe D atau tipe terendah bertransmisi manual merupakan mobil penumpang paling murah yang dijual pabrikan saat ini, dalam situs resmi PT Astra Daihatsu Motor (ADM) mobil yang masuk ke dalam segmen Low Cost Green Car (LCGC) ini dibanderol hanya Rp 98,15 juta.</p>', 1, '2020-08-28', '7', 1, '091546500_1491554518-Ayla_depan.jpg'),
+(13, 'Nasib Tragis Mobil Termurah di Dunia', '<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Quod quasi et nesciunt ut eos praesentium quos dolores velit sit esse obcaecati voluptate recusandae consequuntur quisquam beatae, at soluta dolorem aut ullam dicta consequatur optio incidunt itaque a. Dolorum hic vitae illum voluptas sint ad aspernatur cupiditate! Ut aut eveniet necessitatibus et incidunt quas magni ipsam totam excepturi eos saepe beatae vitae assumenda dolor repellendus hic, tempora. Odio, ea, adipisci repellat officiis accusantium omnis possimus earum asperiores molestiae neque nemo porro nisi inventore maiores repudiandae quidem laudantium dicta atque! Accusamus itaque consectetur nihil facilis impedit saepe earum quisquam necessitatibus ipsum asperiores.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Rem reiciendis, dolor accusamus ut eum nostrum mollitia commodi nihil aut cupiditate beatae, quibusdam est dolorem vel! Sequi eum vitae maxime assumenda modi ab facilis et in beatae placeat magni, voluptatibus nesciunt earum natus. Voluptatum temporibus magnam corporis vitae, dicta repellat soluta, veritatis consectetur consequatur dolore culpa ipsam perspiciatis fugit repellendus dolores porro, optio quos. Repellat eveniet labore, culpa, obcaecati ea cupiditate corporis aut alias quaerat sint, nostrum enim quisquam veritatis excepturi, incidunt animi voluptatem. A, repellat. Molestias magni dolor nihil laboriosam modi nobis cupiditate ipsa perferendis dignissimos quae minima ducimus ut corporis, tempora sequi aut ea, suscipit! Sapiente temporibus, et. Ipsa a perspiciatis modi repellendus esse libero dolore nesciunt autem ut, quo praesentium asperiores quia ad at porro est, omnis explicabo dolorem similique enim dolores nulla, totam, optio voluptates? Corrupti odit deleniti reiciendis laudantium in magnam id explicabo tenetur, quas facere.</p>\r\n\r\n<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque ea perferendis at obcaecati harum esse labore excepturi commodi ex enim ratione rerum blanditiis corrupti, rem distinctio quaerat culpa ullam soluta asperiores temporibus nobis explicabo laborum error molestias sed? Culpa nam neque laborum sed beatae tenetur. Quibusdam eaque enim velit rerum aspernatur ad. Nobis, quidem molestias unde, officia voluptas eum exercitationem, atque deserunt temporibus quis est culpa voluptatem dolores ullam quisquam sequi error animi itaque. Unde magnam labore quidem excepturi fuga minima odio modi obcaecati corrupti explicabo! Nisi consequuntur explicabo blanditiis dolor porro harum aut asperiores facere sed quidem natus nemo quasi, doloremque sit itaque numquam eum ipsum. Inventore magni et similique assumenda quibusdam voluptatibus ex non consequatur rem ducimus quis officia necessitatibus sequi enim velit at fugit totam nam nihil neque, eaque quos ut? Maxime ipsum, minima impedit ducimus earum voluptate at, dolore laborum officia blanditiis. Voluptatum sit quae blanditiis numquam, autem sequi quia, nihil nemo ducimus dignissimos ad ipsum commodi vitae ratione optio aut temporibus voluptate veniam, recusandae non aliquam dolores mollitia. Illum reprehenderit quis a molestias ipsum laborum mollitia explicabo officiis accusantium quae quam nihil magnam sit, ab beatae accusamus consequatur atque porro eos consectetur vero, eaque! Dolores!</p>', 2, '2020-08-28', '7', 1, '0445557Tata-Nano-Euro-NCAP780x390.jpg');
 
 -- --------------------------------------------------------
 
@@ -60,6 +94,27 @@ INSERT INTO `customer` (`id_customer`, `nama`, `username`, `alamat`, `kelamin`, 
 (6, 'Ridho Surya', 'ridho123', 'JL.Pepaya', 'L', 2147483647, '23746264183678', '$2y$10$isCDADDMNqoYNaJyE.OU8udOFfWIXxqDb0aNCFWreowiKgpbqUM2W', 1),
 (7, 'Rozi Amrin', 'rozi123', 'Jl.Purwodadi', 'L', 24234, '454545', '$2y$10$76gmhE5PbljqtrdMexc4..xp/5BPa847aGmPl2a.5vcl.QcmAMoc6', 2),
 (11, 'Toni Saputra', 'toni123', 'Jl.Paus', 'P', 86434, '3413287', '$2y$10$szrrNlt2w/aitQ0fM8sMr.AgW47ZyenpL8WDroZQxuuclJoDl.WwW', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `nama_kategori` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
+(1, 'Teknologi'),
+(2, 'Trending'),
+(3, 'HDD'),
+(4, 'Buming');
 
 -- --------------------------------------------------------
 
@@ -92,24 +147,7 @@ INSERT INTO `mobil` (`id_mobil`, `kode_type`, `merk`, `no_plat`, `warna`, `tahun
 (7, 3, 'Avanza', 'BM 1234 MB', 'Putih', '2009', '1', 100000, 90000, 1, 1, 1, 1, '19a7a09697d626d7d4c664a1436f896b.jpg'),
 (8, 2, 'Xenia', 'BM 6754 UP', 'Putih', '2009', '1', 200000, 50000, 1, 1, 1, 0, '996143517.jpg'),
 (21, 3, 'Kamarun', 'BM 6765 RE', 'Hijau', '2010', '1', 120000, 80000, 1, 1, 1, 1, '1844967957.jpg'),
-(22, 3, 'Honda Jaz Rs Matic 201', 'BM 6743 UP', 'Putih', '2018', '1', 300000, 100000, 0, 1, 1, 0, 'honda_jaz_rs_matic_201_1547430590_57b73d33_progressive.jpg'),
-(23, 3, 'Sedan 340CC', 'BM 2398 GH', 'Merah', '2018', '0', 500000, 200000, 0, 1, 1, 0, 'car-4.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rental`
---
-
-CREATE TABLE `rental` (
-  `id_rental` int(11) NOT NULL,
-  `id_customer` int(11) NOT NULL,
-  `tgl_rental` date NOT NULL,
-  `tgl_kembali` date NOT NULL,
-  `tgl_penggembalian` date NOT NULL,
-  `status_rental` varchar(50) NOT NULL,
-  `status_penggembalian` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(22, 3, 'Honda Jaz Rs Matic 201', 'BM 6743 UP', 'Putih', '2018', '0', 300000, 100000, 0, 1, 1, 0, 'honda_jaz_rs_matic_201_1547430590_57b73d33_progressive.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,10 +177,9 @@ CREATE TABLE `transaksi` (
 
 INSERT INTO `transaksi` (`id_rental`, `id_customer`, `id_mobil`, `tgl_rental`, `tgl_kembali`, `harga`, `denda`, `total_denda`, `tgl_penggembalian`, `status_penggembalian`, `status_rental`, `bukti_pembayaran`, `status_pembayaran`) VALUES
 (3, 7, 23, '2020-08-24', '2020-08-27', '500000', '200000', '200000', '2020-08-28', 'Kembali', 'Selesai', 'car-5.jpg', 1),
-(4, 6, 8, '2020-08-25', '2020-08-27', '200000', '50000', '100000', '2020-08-28', 'Kembali', 'Selesai', '', 0),
-(5, 6, 22, '2020-08-19', '2020-08-20', '300000', '300000', '1250000', '2020-08-25', 'Kembali', 'Selesai', '', 0),
 (7, 7, 21, '2020-08-16', '2020-08-17', '120000', '80000', '720000', '2020-08-26', 'Kembali', 'Selesai', 'car-4.jpg', 1),
-(9, 7, 23, '2020-08-26', '2020-08-27', '500000', '200000', '0', '0000-00-00', 'Belum Kembali', 'Belum Selesai', '', 0);
+(9, 7, 23, '2020-08-26', '2020-08-27', '500000', '200000', '0', '0000-00-00', 'Belum Kembali', 'Belum Selesai', '', 0),
+(10, 6, 22, '2020-08-26', '2020-08-27', '300000', '100000', '0', '0000-00-00', 'Belum Kembali', 'Belum Selesai', '', 0);
 
 -- --------------------------------------------------------
 
@@ -171,10 +208,16 @@ INSERT INTO `type` (`id_type`, `kode_type`, `nama_type`) VALUES
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `bank`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`);
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`id_bank`);
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id_berita`);
 
 --
 -- Indexes for table `customer`
@@ -183,17 +226,17 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`id_customer`);
 
 --
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
 -- Indexes for table `mobil`
 --
 ALTER TABLE `mobil`
   ADD PRIMARY KEY (`id_mobil`),
   ADD KEY `kode_type` (`kode_type`);
-
---
--- Indexes for table `rental`
---
-ALTER TABLE `rental`
-  ADD PRIMARY KEY (`id_rental`);
 
 --
 -- Indexes for table `transaksi`
@@ -212,10 +255,16 @@ ALTER TABLE `type`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `bank`
 --
-ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `bank`
+  MODIFY `id_bank` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -224,22 +273,22 @@ ALTER TABLE `customer`
   MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `mobil`
 --
 ALTER TABLE `mobil`
-  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT for table `rental`
---
-ALTER TABLE `rental`
-  MODIFY `id_rental` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_rental` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_rental` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `type`
