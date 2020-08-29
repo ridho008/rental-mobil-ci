@@ -5,8 +5,11 @@ Aplikasi Rental Mobil Sederhana Menggunakan Codeigniter 3
 <br>
 <h3>Fitur Pengeloa Admin Website</h3>
 <ul>
-	<li>Crud Customer</li>
+	<li>Crud Artikel</li>
+  <li>Crud Customer</li>
 	<li>Crud Mobil</li>
+  <li>Crud Bank</li>
+  <li>Crud Kategori</li>
 	<li>Crud Type</li>
 	<li>Transaksi</li>
   <li>Laporan</li>
@@ -15,6 +18,7 @@ Aplikasi Rental Mobil Sederhana Menggunakan Codeigniter 3
   <li>Fitur Pencarian</li>
   <li>Fitur Pagination</li>
   <li>Ganti Password</li>
+  <li>Dashboard Member Untuk Posting Artikel, Tetapi harus menunggu persetujuan admin terlebih dahulu.</li>
 </ul>
 <br>
 <h3>Penjelasan</h3>
